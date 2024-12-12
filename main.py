@@ -2,11 +2,13 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import pandas as pd
 import joblib
+from fastapi.middleware.cors import CORSMiddleware 
 
 # Initialiser l'application FastAPI
 app = FastAPI()
 
 app.add_middleware(
+     CORSMiddleware,
     allow_origins=["*"],  # Remplacez "*" par une liste des origines autorisées, ex: ["http://localhost:3000"]
     allow_credentials=True,
     allow_methods=["*"],  # Autoriser toutes les méthodes (GET, POST, etc.)
